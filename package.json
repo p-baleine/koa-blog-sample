@@ -1,0 +1,23 @@
+{
+  "name": "koa-sample",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --harmony index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "BSD",
+  "dependencies": {
+    "koa": "~0.1.2",
+    "bookshelf": "~0.6.2",
+    "knex": "~0.5.2",
+    "pg": "~2.9.0",
+    "koa-route": "~1.0.2",
+    "jade": "~1.0.0",
+    "co-views": "~0.1.0",
+    "co-body": "0.0.1",
+    "validator": "~2.0.0"
+  }
+}

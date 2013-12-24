@@ -1,0 +1,8 @@
+form(action="/posts" method="post")
+  .input-group
+    label(for="post[title]") Title
+    input(type="text" name="post[title]" placeholder="title")
+  .input-group
+    label(for="post[content]") Content
+    textarea(name="post[content]")
+  input(type="submit" value="send")

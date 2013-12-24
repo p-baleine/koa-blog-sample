@@ -1,0 +1,9 @@
+extends ../layout
+
+block content
+  ul.posts
+    each post in posts
+      li.post
+        include post
+
+  a(href="/posts/new") Create new post

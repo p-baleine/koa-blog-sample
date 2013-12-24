@@ -1,0 +1,6 @@
+MIGRATION_FILES = $(shell find db/migrations -name "*.js")
+
+migrate: $(MIGRATION_FILES)
+	./node_modules/.bin/knex migrate:latest -c db/config.js
+
+.PHONY: migrate
