@@ -6,8 +6,8 @@ if typeof errors !== "undefined"
 form(action="/posts" method="post")
   .input-group
     label(for="post[title]") Title
-    input(type="text" name="post[title]" placeholder="title")
+    input(type="text" name="post[title]" placeholder="title" value=post.title)
   .input-group
     label(for="post[content]") Content
-    textarea(name="post[content]")
+    textarea(name="post[content]")= post.content
   input(type="submit" value="send")
