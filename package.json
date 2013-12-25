@@ -20,6 +20,10 @@
     "co-body": "0.0.1",
     "validator": "~2.0.0",
     "bcrypt": "https://github.com/rvagg/node.bcrypt.js/tarball/nan",
-    "bluebird": "~0.11.5-1"
+    "bluebird": "~0.11.5-1",
+    "co": "~3.0.1"
+  },
+  "devDependencies": {
+    "prompt": "~0.2.12"
   }
 }
