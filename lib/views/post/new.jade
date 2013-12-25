@@ -1,3 +1,8 @@
+if typeof errors !== "undefined"
+  ul.errors
+    each error in errors
+      li.error= error
+
 form(action="/posts" method="post")
   .input-group
     label(for="post[title]") Title
