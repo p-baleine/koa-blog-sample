@@ -1,6 +1,6 @@
-if typeof errors !== "undefined"
+if typeof post.errors !== "undefined"
   ul.errors
-    each error in errors
+    each error in post.errors
       li.error= error
 
 form(action="/posts" method="post")
