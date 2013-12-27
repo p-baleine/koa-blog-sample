@@ -1,6 +1,5 @@
-#!/usr/bin/env node --harmony
+#!/usr/bin/env node
 
-var co = require('co');
 var prompt = require('prompt');
 var User = require('../lib/models/user');
 
@@ -11,15 +10,16 @@ prompt.start();
 prompt.get(['email', 'password'], function(err, result) {
   if (err) { throw err; }
 
-  co(function * () {
-    var user = new User(result);
+  var user = new User(result);
 
-    if (!(yield user.save())) {
-      console.error(user.getValidationErrors().join('¥n'));
-    } else {
-      console.log('User %d is created.', user.id);
-    }
-
-    process.exit();
-  })(console.error);
+  user.save()
+    .then(function(created) {
+      if (created) {
+        console.log('User %d is created.', user.id);
+      } else {
+        console.error(user.getValidationErrors().join('\n'));
+      }
+    })
+    .catch(console.error)
+    .finally(process.exit);
 });
