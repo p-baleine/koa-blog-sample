@@ -1,3 +1,23 @@
+include ../errors
+
 h2.title= post.title
 p.content= post.content
 .author= post.user.name
+
+ul.comments
+  each comment in post.comments
+    li.comment
+      .commenter= comment.commenter
+      p.content= comment.content
+
+if newComment && typeof newComment.errors !== "undefined"
+  mixin errors(newComment.errors)
+
+form(action="/posts/#{post.id}/comments" method="post")
+  .input-group
+    label(for="comment[commenter]") Name
+    input(type="text" name="comment[commenter]" placeholder="yourname")
+  .input-group
+    label(for="comment[content]") Content
+    textarea(name="comment[content]")
+  input(type="submit" value="send")
