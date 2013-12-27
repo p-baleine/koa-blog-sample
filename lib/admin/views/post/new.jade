@@ -1,7 +1,7 @@
+include ../errors
+
 if typeof post.errors !== "undefined"
-  ul.errors
-    each error in post.errors
-      li.error= error
+  mixin errors(post.errors)
 
 form(action="/admin/posts" method="post")
   .input-group

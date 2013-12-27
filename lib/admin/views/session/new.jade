@@ -1,3 +1,8 @@
+include ../errors
+
+if typeof errors !== "undefined"
+  mixin errors(errors)
+
 form(action="/admin/sessions" method="post")
   .input-group
     label(for="user[email]") Title
