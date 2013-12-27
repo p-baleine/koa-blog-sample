@@ -22,7 +22,8 @@
     "bcrypt": "https://github.com/rvagg/node.bcrypt.js/tarball/nan",
     "bluebird": "~0.11.5-1",
     "co": "~3.0.1",
-    "koa-common": "https://github.com/p-baleine/common/tarball/topic-deps-update"
+    "koa-common": "https://github.com/p-baleine/common/tarball/topic-deps-update",
+    "koa-session": "~1.2.0"
   },
   "devDependencies": {
     "prompt": "~0.2.12"
