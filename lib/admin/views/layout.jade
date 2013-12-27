@@ -1,14 +1,18 @@
 doctype html
 html
-head
-body
-  header.fixed
-    nav.top-bar
-      section.top-bar-section
-        ul.right
-          li.user= user.name
-          li.logout
-            form(action="/admin/sessions" method="post")
-              input(type="hidden" name="_method" value="delete")
-              input(type="submit" value="logout")
-  block content
+  head
+    meta(charset="utf-8")
+    title My Blog
+    link(href="/admin-application.css" rel="stylesheet" type="text/css")
+  body
+    if typeof user !== "undefined"
+      header.fixed
+        nav.top-bar
+          section.top-bar-section
+            ul.right
+              li.user= user.name
+              li.logout
+                form(action="/admin/sessions" method="post")
+                  input(type="hidden" name="_method" value="delete")
+                  input(type="submit" value="logout")
+    block content

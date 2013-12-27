@@ -1,0 +1,19 @@
+{
+  "name": "koa-sample",
+  "main": "index.js",
+  "version": "0.0.0",
+  "authors": [
+    "Tajima Junpei <p.baleine@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.0.3"
+  }
+}

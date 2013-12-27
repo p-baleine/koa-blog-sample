@@ -5,6 +5,8 @@ var User = require('../lib/models/user');
 
 // create user from prompt.
 
+console.log('\n\nPlease enter user information:');
+
 prompt.start();
 
 prompt.get(['email', 'name', 'password'], function(err, result) {

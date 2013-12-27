@@ -1,7 +1,10 @@
 include ../../../views/errors
 include form
 
-if typeof post.errors !== "undefined"
-  mixin errors(post.errors)
+extends ../layout
 
-mixin form(false, post)
+block content
+  if typeof post.errors !== "undefined"
+    mixin errors(post.errors)
+
+  mixin form(false, post)

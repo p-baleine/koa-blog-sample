@@ -1,13 +1,17 @@
 include ../../../views/errors
 
-if typeof errors !== "undefined"
-  mixin errors(errors)
+extends ../layout
 
-form(action="/admin/sessions" method="post")
-  .input-group
-    label(for="user[email]") Title
-    input(type="email" name="user[email]" placeholder="email")
-  .input-group
-    label(for="user[password]") Password
-    input(type="password" name="user[password]")
-  input(type="submit" value="login")
+block content
+
+  if typeof errors !== "undefined"
+    mixin errors(errors)
+
+  form(action="/admin/sessions" method="post")
+    .input-group
+      label(for="user[email]") Title
+      input(type="email" name="user[email]" placeholder="email")
+    .input-group
+      label(for="user[password]") Password
+      input(type="password" name="user[password]")
+    input(type="submit" value="login")
