@@ -5,5 +5,10 @@ body
   header.fixed
     nav.top-bar
       section.top-bar-section
-        .right= user.email
+        ul.right
+          li.user= user.email
+          li.logout
+            form(action="/admin/sessions" method="post")
+              input(type="hidden" name="_method" value="delete")
+              input(type="submit" value="logout")
   block content

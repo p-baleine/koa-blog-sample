@@ -24,7 +24,9 @@
     "co": "~3.0.1",
     "koa-common": "https://github.com/p-baleine/common/tarball/topic-deps-update",
     "koa-session": "~1.2.0",
-    "lodash": "~2.4.1"
+    "lodash": "~2.4.1",
+    "methods": "~0.1.0",
+    "debug": "~0.7.4"
   },
   "devDependencies": {
     "prompt": "~0.2.12"

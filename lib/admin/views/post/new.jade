@@ -3,7 +3,7 @@ if typeof post.errors !== "undefined"
     each error in post.errors
       li.error= error
 
-form(action="/posts" method="post")
+form(action="/admin/posts" method="post")
   .input-group
     label(for="post[title]") Title
     input(type="text" name="post[title]" placeholder="title" value=post.title)
