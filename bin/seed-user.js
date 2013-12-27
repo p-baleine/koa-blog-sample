@@ -7,7 +7,7 @@ var User = require('../lib/models/user');
 
 prompt.start();
 
-prompt.get(['email', 'password'], function(err, result) {
+prompt.get(['email', 'name', 'password'], function(err, result) {
   if (err) { throw err; }
 
   var user = new User(result);
