@@ -1,6 +1,11 @@
 include ../errors
 
 h2.title= post.title
+
+ul.tags
+  each tag in post.tags
+    li.tag= tag.text
+
 p.content= post.content
 .author= post.user.name
 

@@ -7,6 +7,12 @@ form(action="/admin/posts" method="post")
   .input-group
     label(for="post[title]") Title
     input(type="text" name="post[title]" placeholder="title" value=post.title)
+  ul.input-group.tags
+    label Tags
+    each tag in tags
+      li.tag
+        input(type="checkbox" name="post[tags][]" value= tag.id)
+        = tag.text
   .input-group
     label(for="post[content]") Content
     textarea(name="post[content]")= post.content
