@@ -27,7 +27,7 @@ $ nvm install -s 0.11
 データベースの設定:
 
 ```
-$ cp db/config.sample.js db/config.js # db/config.jsを編集
+$ cp config/default.sample.json config/default.json # db/config.jsを編集
 ```
 
 セットアップ:
