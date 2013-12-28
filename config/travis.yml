@@ -1,0 +1,9 @@
+{
+  "database": {
+    "connection": {
+      "database": "koa-blog-test",
+      "user": "postgres"
+    },
+    "debug": false
+  }
+}

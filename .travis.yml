@@ -1,0 +1,10 @@
+language: node_js
+node_js:
+  - 0.11.9
+
+before_script:
+  - npm install
+  - NODE_ENV=travis ./node_modules/.bin/knex migrate:latest -c db/config.js
+
+script:
+  - NODE_ENV=travis ./node_modules/.bin/mocha
