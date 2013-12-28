@@ -4,10 +4,12 @@
 
 ## Development
 
+Currently PostgreSQL is only supported.
+
 Clone repository:
 
 ```bash
-$ git clone https://bitbucket.org/p_baleine/koa-sample && cd koa-sample
+$ git clone https://github.com/p-baleine/koa-blog-sample.git && cd koa-blog-sample
 ```
 
 `koa` requires node 0.11.9 or higher (https://github.com/koajs/koa#installation), with [nvm](https://github.com/creationix/nvm), you can switch to node 0.11:
@@ -16,7 +18,7 @@ $ git clone https://bitbucket.org/p_baleine/koa-sample && cd koa-sample
 $ nvm use
 ```
 
-Note that when I try node 0.11.9 installed by nvm the installed binary was not enabled openssl and I had to install node 0.11.9 with source option:
+Note that when I try node 0.11.9 installed by nvm, the installed binary was not enabled openssl and I had to install node 0.11.9 with source option:
 
 ```
 $ nvm install -s 0.11
@@ -25,17 +27,31 @@ $ nvm install -s 0.11
 Configure database:
 
 ```bash
-$ cp db/config.sample.js db/config.js # edit your configuration
+$ cp config/default.sample.json config/default.json # edit your configuration
 ```
 
-Migration:
+Setup:
 
 ```bash
-$ make migrate
+$ npm install && make
 ```
 
 Start app:
 
 ```bash
 $ npm start
+```
+
+And access top:
+
+http://localhost:3000/
+
+or login as admin:
+
+http://localhost:3000/admin/sessions/new
+
+## Test
+
+```bash
+$ make test
 ```

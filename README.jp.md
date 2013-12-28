@@ -50,3 +50,10 @@ http://localhost:3000/
 
 http://localhost:3000/admin/sessions/new
 
+## Test
+
+```bash
+$ make test
+```
+
+
