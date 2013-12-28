@@ -1,7 +1,7 @@
 {
-  "name": "koa-sample",
-  "version": "0.0.0",
-  "description": "",
+  "name": "koa-blog-sample",
+  "version": "0.0.1",
+  "description": "Sample blog app that demonstrates the usage of koa.",
   "main": "index.js",
   "scripts": {
     "start": "node --harmony index.js",
