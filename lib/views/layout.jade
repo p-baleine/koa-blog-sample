@@ -2,8 +2,10 @@ doctype html
 html
   head
     meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
     title My Blog
     link(href="/application.css" rel="stylesheet" type="text/css")
   body
-    h1 My Blog
-    block content
+    #content.row
+      h1#title.col-xs-12: a(href="/") My Blog
+      block content

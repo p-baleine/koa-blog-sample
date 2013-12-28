@@ -1,28 +1,39 @@
 include ../errors
 
-h2.title= post.title
+extends ../layout
 
-ul.tags
-  each tag in post.tags
-    li.tag= tag.text
+block content
+  .post.col-xs-12.col-sm-8.col-sm-offset-2
+    .created-at= formatDate(post.created_at)
 
-p.content= post.content
-.author= post.user.name
+    h2.title= post.title
 
-ul.comments
-  each comment in post.comments
-    li.comment
-      .commenter= comment.commenter
-      p.content= comment.content
+    ul.tags
+      each tag in post.tags
+        li.tag= tag.text
 
-if newComment && typeof newComment.errors !== "undefined"
-  mixin errors(newComment.errors)
+    p.content= post.content
 
-form(action="/posts/#{post.id}/comments" method="post")
-  .input-group
-    label(for="comment[commenter]") Name
-    input(type="text" name="comment[commenter]" placeholder="yourname")
-  .input-group
-    label(for="comment[content]") Content
-    textarea(name="comment[content]")
-  input(type="submit" value="send")
+    span.author author #{post.user.name}
+
+    .comments.row
+      .col-xs-12.col-sm-10.col-sm-offset-1
+        .comment-label Comments
+
+        ul
+          each comment in post.comments
+            li.comment
+              .commenter= comment.commenter
+              p.content= comment.content
+
+        if newComment && typeof newComment.errors !== "undefined"
+          mixin errors(newComment.errors)
+
+        form(action="/posts/#{post.id}/comments" method="post" role="form")
+          .form-group
+            label(for="comment[commenter]") Name
+            input.form-control(type="text" name="comment[commenter]" placeholder="yourname")
+          .form-group
+            label(for="comment[content]") Content
+            textarea.form-control(name="comment[content]")
+          input.btn.btn-primary.myblog-btn(type="submit" value="send")

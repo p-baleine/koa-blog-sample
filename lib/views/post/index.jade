@@ -1,7 +1,7 @@
 extends ../layout
 
 block content
-  ul.posts
+  main.posts.col-xs-12.col-sm-8.col-sm-offset-2
     each post in posts
-      li.post
+      article.post
         include post

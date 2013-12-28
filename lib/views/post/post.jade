@@ -1,8 +1,11 @@
-a(href="/posts/#{post.id}")
-  h2.title= post.title
+.created-at= formatDate(post.created_at)
+a.title(href="/posts/#{post.id}")
+  h2= post.title
 ul.tags
   each tag in post.tags
     li.tag= tag.text
 p.content= post.content
-.author= post.user.name
-.comment-count= post.comments.length
+
+.footer
+  span.author author #{post.user.name}
+  span.comment-count comments #{post.comments.length}

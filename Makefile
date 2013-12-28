@@ -8,10 +8,10 @@ migrate: $(MIGRATION_FILES)
 seed:
 	@./bin/seed-user.js
 
-public/%.css: bootstrap less/%.less
+public/%.css: bower_components/bootstrap/less/bootstrap.less less/%.less
 	./node_modules/.bin/lessc $(word 2,$^) > $@
 
-bootstrap:
+bower_components/bootstrap/less/bootstrap.less:
 	./node_modules/.bin/bower install
 
 .PHONY: migrate seed

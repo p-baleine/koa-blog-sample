@@ -1,1 +1,118 @@
 @import "../bower_components/bootstrap/less/bootstrap.less";
+@import "../bower_components/bootstrap/less/utilities.less";
+@import url(http://fonts.googleapis.com/css?family=Mr+Bedfort);
+
+@primary-color: #ee3423;
+@secondary-color: #faf4f1;
+
+body {
+  background: @secondary-color;
+}
+
+#title {
+  color: #ffffff;
+  margin-top: 0;
+  padding: 50px;
+  background: @primary-color;
+
+  a {
+    color: #ffffff;
+    font-family: 'Mr Bedfort', cursive;
+    font-weight: bold;
+    text-shadow: 0 -1px 0 #222222;
+    text-decoration: none;
+  }
+}
+
+#content {
+  margin: 0;
+}
+
+ul, li {
+  padding: 0;
+  list-style: none;
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+  color: #50585D;
+}
+
+.myblog-btn {
+  background-color: @primary-color;
+  border-color: #de2c19;
+
+  &:hover {
+    background-color: #f94e3d;
+    border-color: #de2c19;
+  }
+}
+
+.post {
+  padding-bottom: 6rem;
+
+  .title, .title h2 {
+    color: #4a4a4a;
+    transition: color ease 0.5s;
+    text-decoration: none;
+    font-weight: bold;
+
+    &:focus, &:hover {
+      color: @primary-color;
+      text-decoration: none;
+    }
+  }
+
+  .created-at {
+    color: #808080;
+  }
+
+  .tags {
+    padding: 0;
+
+    .tag {
+      display: inline;
+      font-size: 12px;
+      color: #555555;
+      background: #dfdfdf;
+      padding: 0 3px;
+      margin: 0 3px;
+    }
+  }
+
+  .comments {
+    margin-top: 20px;
+
+    .comment-label {
+      font-weight: bold;
+    }
+
+    .comment {
+      margin: 10px 0;
+
+      &:extend(.clearfix all);
+
+      .commenter {
+        padding: 5px;
+      }
+
+      .content {
+        margin-left: 20px;
+        padding: 5px;
+        color: #666666;
+        background-color: #ffffff;
+        border-radius: 5px;
+      }
+    }
+  }
+
+  .footer {
+    margin: 10px -2px 0;
+    padding: 5px 10px;
+    color: #666666;
+    background-color: #ffffff;
+
+    .author {
+      margin-right: 10px;
+    }
+  }
+}
