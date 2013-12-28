@@ -1,0 +1,5 @@
+--require=./test/lib/unittest-chai-as-promised.js
+--require=./test/lib/unittest-mocha-as-promised.js
+--require=./test/lib/unittest-sinon-chai.js
+--reporter=dot
+test/models/*

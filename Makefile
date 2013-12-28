@@ -14,4 +14,8 @@ public/%.css: bower_components/bootstrap/less/bootstrap.less less/%.less
 bower_components/bootstrap/less/bootstrap.less:
 	./node_modules/.bin/bower install
 
-.PHONY: migrate seed
+test:
+	@NODE_ENV=test ./node_modules/.bin/knex migrate:latest -c db/config.js && \
+	NODE_ENV=test ./node_modules/.bin/mocha
+
+.PHONY: migrate seed test

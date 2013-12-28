@@ -30,6 +30,16 @@
     "prompt": "~0.2.12",
     "less": "~1.5.1",
     "bower": "~1.2.8",
-    "moment": "~2.5.0"
+    "moment": "~2.5.0",
+    "config": "~0.4.33"
+  },
+  "devDependencies": {
+    "sinon-chai": "~2.4.0",
+    "mocha-as-promised": "~2.0.0",
+    "chai-as-promised": "~4.1.0",
+    "chai": "~1.8.1",
+    "mocha": "~1.16.2",
+    "sinon": "~1.7.3",
+    "supertest": "~0.8.2"
   }
 }

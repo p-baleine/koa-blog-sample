@@ -1,0 +1,8 @@
+{
+  "database": {
+    "connection": {
+      "database": "koa-blog-test"
+    },
+    "debug": false
+  }
+}
