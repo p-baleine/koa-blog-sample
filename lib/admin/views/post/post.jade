@@ -1,5 +1,9 @@
-a(href="/admin/posts/#{post.id}/edit")
-  h2.title= post.title
-.author= post.user.name
-.content= post.content
-.comment-count= post.comments.length
+td.title.col-xs-6
+  a(href="/admin/posts/#{post.id}/edit")
+    h2= post.title
+td.author.col-xs-1= post.user.name
+td.comment-count.col-xs-1= post.comments.length
+td.col-xs-4.row
+  ul.actions
+    li.col-xs-6: a(href="/admin/posts/#{post.id}/edit") edit
+    li.col-xs-6: a.destroy(data-post-id= post.id) delete

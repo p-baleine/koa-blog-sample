@@ -1,19 +1,21 @@
 mixin form(isNew, post)
-  form(action= (isNew ? "/admin/posts" : "/admin/posts/#{post.id}") method="post")
+  form.col-xs-12.col-sm-10.col-sm-offset-1(
+    action= (isNew ? "/admin/posts" : "/admin/posts/#{post.id}") method="post" role="form")
     unless isNew
       input(type="hidden" name="_method" value="put")
-    .input-group
+    .form-group
       label(for="post[title]") Title
-      input(type="text" name="post[title]" placeholder="title" value=post.title)
-    ul.input-group.tags
+      input.form-control(type="text" name="post[title]" placeholder="title" value=post.title)
+    .form-group
       label Tags
-      each tag in tags
-        li.tag
-          input(type="checkbox" name="post[tags][]" value= tag.id
-                checked= (post.tags && ~post.tags.map(function(tag) { return tag.id; }).indexOf(tag.id)) ?
-                  "checked" : undefined)
-          = tag.text
-    .input-group
+      ul.form-group.tags
+        each tag in tags
+          li.tag
+            input(type="checkbox" name="post[tags][]" value= tag.id
+                  checked= (post.tags && ~post.tags.map(function(tag) { return tag.id; }).indexOf(tag.id)) ?
+                    "checked" : undefined)
+            = tag.text
+    .form-group
       label(for="post[content]") Content
-      textarea(name="post[content]")= post.content
-    input(type="submit" value="send")
+      textarea.form-control(name="post[content]" rows="15")= post.content
+    input.btn.btn-primary(type="submit" value="send")

@@ -3,6 +3,7 @@ bower_components
 npm-debug.log
 
 /public/*.css
+/public/*.js
 
 /config/*
 !/config/default.sample.json
