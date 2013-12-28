@@ -1,4 +1,4 @@
-# koa-sample
+# koa-sample [![Build Status](https://travis-ci.org/p-baleine/koa-blog-sample.png?branch=master)](https://travis-ci.org/p-baleine/koa-blog-sample)
 
 > [koa](https://github.com/koajs/koa)で作ってみたサンプルブログアプリ
 
