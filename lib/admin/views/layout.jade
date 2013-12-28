@@ -6,13 +6,22 @@ html
     link(href="/admin-application.css" rel="stylesheet" type="text/css")
   body
     if typeof user !== "undefined"
-      header.fixed
-        nav.top-bar
-          section.top-bar-section
-            ul.right
-              li.user= user.name
+      header
+        nav.navbar.navbar-default.navbar-fixed-top(role="navigation")
+          .navbar-header
+            button.navbar-toggle(type="button" class="" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1")
+              span.sr-only Toggle navigation
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            a.navbar-brand(href="/admin/posts") My blog
+
+          #bs-example-navbar-collapse-1.collapse.navbar-collapse
+            ul.nav.navbar-nav.navbar-right
+              li.user.navbar-text= user.name
               li.logout
                 form(action="/admin/sessions" method="post")
                   input(type="hidden" name="_method" value="delete")
-                  input(type="submit" value="logout")
-    block content
+                  button.btn.btn-default.navbar-btn(type="submit") Logout
+    #content.row
+      block content

@@ -4,14 +4,18 @@ extends ../layout
 
 block content
 
-  if typeof errors !== "undefined"
-    mixin errors(errors)
+  #login.col-xs-12.col-sm-6.col-sm-offset-3
 
-  form(action="/admin/sessions" method="post")
-    .input-group
-      label(for="user[email]") Title
-      input(type="email" name="user[email]" placeholder="email")
-    .input-group
-      label(for="user[password]") Password
-      input(type="password" name="user[password]")
-    input(type="submit" value="login")
+    if typeof errors !== "undefined"
+      mixin errors(errors)
+
+    h1 Login
+
+    form(action="/admin/sessions" method="post" role="form")
+      .form-group
+        label(for="user[email]") Email
+        input.form-control(type="email" name="user[email]" placeholder="email")
+      .form-group
+        label(for="user[password]") Password
+        input.form-control(type="password" name="user[password]")
+      input.btn.btn-primary(type="submit" value="login")
