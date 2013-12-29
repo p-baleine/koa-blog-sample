@@ -83,11 +83,28 @@ describe('Post', function() {
           var user = yield new User({ email: 'p.baleine@gmail.com', name: 'p', password: 's' }).save();
           var post = new Post({ title: 't1', content: 'c1', tags: [1, 1], user_id: user.id });
 
-          // post.save() would failed due to duplicated id of tags.
-          expect((yield post.save())).to.equal(false);
-          expect((yield knex('posts').select())).to.be.empty;
-          
-        }).call(this, done);
+          yield post.save(); // post.save() would failed due to duplicated id of tags.
+        }).call(this, function(e) {
+          expect(e).to.exist;
+          knex('posts').select().then(function(posts) {
+            expect(posts).to.be.empty;
+          });
+          done();
+        });
+      });
+
+      it('should throw error when some error occurred other than `ValidatorError`', function(done) {
+        co(function *() {
+          var user = yield new User({ email: 'p.baleine@gmail.com', name: 'p', password: 's' }).save();
+          var post = new Post({ title: 't1', content: 'c1', tags: [1, 2], user_id: user.id });
+
+          sinon.stub(post, 'save', function() { throw new Error(); });
+
+          yield post.save();
+        })(function(e) {
+          expect(e).to.exist;
+          done();
+        });
       });
     });
 

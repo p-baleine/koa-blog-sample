@@ -31,4 +31,4 @@ test:
 		test/routes/* \
 		test/views/*
 
-.PHONY: migrate seed test
+.PHONY: seed test
