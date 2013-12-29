@@ -29,6 +29,7 @@ test:
 		--reporter=dot \
 		test/models/* \
 		test/routes/* \
-		test/views/*
+		test/views/* \
+		test/admin/routes/*
 
 .PHONY: seed test
