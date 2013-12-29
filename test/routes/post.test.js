@@ -37,34 +37,28 @@ describe('post route', function() {
     it('should fetch posts with user, comments and tags', function(done) {
       co(function *() {
         yield post.index;
-      })(function(e) {
-        if (e) { return done(e); }
+
         expect(this.fetchSpy.lastCall.args[0]).to.have.been.property('withRelated');
         expect(this.fetchSpy.lastCall.args[0].withRelated).to.include('user');
         expect(this.fetchSpy.lastCall.args[0].withRelated).to.include('comments');
         expect(this.fetchSpy.lastCall.args[0].withRelated).to.include('tags');
-        done();
-      }.bind(this));
+      }).call(this, done);
     });
 
     it('should fetch posts in the order of post\'s created_at desc', function(done) {
       co(function *() {
         yield post.index;
-      })(function(e) {
-        if (e) { return done(e); }
+
         expect(this.querySpy).to.have.been.calledWith('orderBy', 'created_at', 'desc');
-        done();
-      }.bind(this));      
+      }).call(this, done);
     });
 
     it('should render `post/index`', function(done) {
       co(function *() {
         yield post.index;
-      })(function(e) {
-        if (e) { return done(e); }
+
         expect(this.renderFileSpy.args[0][0]).to.match(/post\/index\.jade/);
-        done();
-      }.bind(this));      
+      }).call(this, done);
     });
   });
 
@@ -82,34 +76,28 @@ describe('post route', function() {
     it('should fetch a post that has passed id', function(done) {
       co(function *() {
         yield post.show(100);
-      })(function(e) {
-        if (e) { return done(e); }
+
         expect(this.fetchStub.lastCall.thisValue.id).to.equal(100);
-        done();
-      }.bind(this));
+      }).call(this, done);
     });
 
     it('should fetch a post with user, comments and tags', function(done) {
       co(function *() {
         yield post.show;
-      })(function(e) {
-        if (e) { return done(e); }
+
         expect(this.fetchStub.lastCall.args[0]).to.have.been.property('withRelated');
         expect(this.fetchStub.lastCall.args[0].withRelated).to.include('user');
         expect(this.fetchStub.lastCall.args[0].withRelated).to.include('comments');
         expect(this.fetchStub.lastCall.args[0].withRelated).to.include('tags');
-        done();
-      }.bind(this));
+      }).call(this, done);
     });
 
     it('should render `post/show`', function(done) {
       co(function *() {
         yield post.show;
-      })(function(e) {
-        if (e) { return done(e); }
+
         expect(this.renderFileSpy.args[0][0]).to.match(/post\/show\.jade/);
-        done();
-      }.bind(this));      
+      }).call(this, done);
     });
   });
 });
