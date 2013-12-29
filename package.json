@@ -52,5 +52,9 @@
   },
   "browserify": {
     "transform": [ "browserify-shim" ]
+  },
+  "repository": {
+    "type" : "git",
+    "url" : "http://registry.npmjs.org"
   }
 }
