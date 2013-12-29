@@ -52,8 +52,5 @@
   },
   "browserify": {
     "transform": [ "browserify-shim" ]
-  },
-  "publishConfig":{
-    "registry":"http://registry.npmjs.org"
   }
 }
