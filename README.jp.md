@@ -36,6 +36,12 @@ $ cp config/default.sample.json config/default.json # db/config.jsを編集
 $ npm install && make
 ```
 
+ユーザ作成:
+
+```bash
+$ make seed
+```
+
 起動:
 
 ```bash

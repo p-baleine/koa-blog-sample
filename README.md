@@ -36,6 +36,12 @@ Setup:
 $ npm install && make
 ```
 
+seed user:
+
+```bash
+$ make seed
+```
+
 Start app:
 
 ```bash
