@@ -27,15 +27,15 @@ describe('Post', function() {
     });
 
     it('should have many comments', function() {
-        expect(new Post().comments().relatedData).to.exist;
-        expect(new Post().comments().relatedData.target).to.equal(Comment);
-        expect(new Post().comments().relatedData.type).to.equal('hasMany');
+      expect(new Post().comments().relatedData).to.exist;
+      expect(new Post().comments().relatedData.target).to.equal(Comment);
+      expect(new Post().comments().relatedData.type).to.equal('hasMany');
     });
 
     it('should belong to many tags', function() {
-        expect(new Post().tags().relatedData).to.exist;
-        expect(new Post().tags().relatedData.target).to.equal(Tag);
-        expect(new Post().tags().relatedData.type).to.equal('belongsToMany');
+      expect(new Post().tags().relatedData).to.exist;
+      expect(new Post().tags().relatedData.target).to.equal(Tag);
+      expect(new Post().tags().relatedData.type).to.equal('belongsToMany');
     });
   });
 
@@ -46,15 +46,15 @@ describe('Post', function() {
           var user = yield new User({ email: 'p.baleine@gmail.com', name: 'p', password: 's' }).save();
           var post = yield new Post({ title: 't1', content: 'c1', user_id: user.id, tags: [1, 2] }).save();
           var postsTags = yield knex('posts_tags')
-            .where('post_id', post.id)
-            .whereIn('tag_id', [1, 2])
-            .orderBy('tag_id')
-            .select();
+                .where('post_id', post.id)
+                .whereIn('tag_id', [1, 2])
+                .orderBy('tag_id')
+                .select();
 
-            expect(postsTags[0].post_id).to.equal(post.id);
-            expect(postsTags[0].tag_id).to.equal(1);
-            expect(postsTags[1].post_id).to.equal(post.id);
-            expect(postsTags[1].tag_id).to.equal(2);          
+          expect(postsTags[0].post_id).to.equal(post.id);
+          expect(postsTags[0].tag_id).to.equal(1);
+          expect(postsTags[1].post_id).to.equal(post.id);
+          expect(postsTags[1].tag_id).to.equal(2);          
         })(done);
       });
 
@@ -67,10 +67,10 @@ describe('Post', function() {
           yield post.save();
 
           var postsTags = yield knex('posts_tags')
-            .where('post_id', post.id)
-            .whereIn('tag_id', [1, 2])
-            .orderBy('tag_id')
-            .select();
+                .where('post_id', post.id)
+                .whereIn('tag_id', [1, 2])
+                .orderBy('tag_id')
+                .select();
 
           expect(postsTags).to.have.length(1);
           expect(postsTags[0].post_id).to.equal(post.id);
@@ -130,6 +130,6 @@ describe('Post', function() {
 
         expect(posts).to.have.length(2);
       })(done);
-   });
+    });
   });
 });
