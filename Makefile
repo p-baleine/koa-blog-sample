@@ -20,12 +20,11 @@ bower_components/bootstrap/less/bootstrap.less:
 test:
 	@NODE_ENV=test ./node_modules/.bin/knex migrate:latest -c db/config.js && \
 	NODE_ENV=test ./node_modules/.bin/mocha \
-		--require=./test/lib/unittest-chai-as-promised.js \
-		--require=./test/lib/unittest-mocha-as-promised.js \
 		--require=./test/lib/unittest-sinon-chai.js \
 		--harmony-generators \
 		--reporter=dot \
 		test/models/* \
-		test/routes/*
+		test/routes/* \
+		test/views/*
 
 .PHONY: migrate seed test
