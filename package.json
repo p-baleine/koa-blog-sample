@@ -10,7 +10,7 @@
   "author": "",
   "license": "BSD",
   "dependencies": {
-    "koa": "~0.1.2",
+    "koa": "~0.2.1",
     "bookshelf": "~0.6.2",
     "knex": "~0.5.2",
     "pg": "~2.9.0",
