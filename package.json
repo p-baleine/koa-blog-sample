@@ -43,7 +43,7 @@
     "mocha": "~1.16.2",
     "sinon": "~1.7.3",
     "supertest": "~0.8.2",
-    "jsdom": "~0.8.4",
+    "jsdom": "git+https://github.com/haraldrudell/jsdom.git",
     "co-render": "0.0.1"
   },
   "browser": {
