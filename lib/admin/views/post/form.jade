@@ -3,6 +3,7 @@ mixin form(isNew, post)
     action= (isNew ? "/admin/posts" : "/admin/posts/#{post.id}") method="post" role="form")
     unless isNew
       input(type="hidden" name="_method" value="put")
+    input(type="hidden" name="_csrf" value= csrf)
     .form-group
       label(for="post[title]") Title
       input.form-control(type="text" name="post[title]" placeholder="title" value=post.title)
