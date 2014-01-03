@@ -9,6 +9,7 @@
       "charset": "utf8"
     },
     "debug": true
-  }
+  },
+  "secret": "some secret hurr"
 }
 

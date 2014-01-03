@@ -1,0 +1,22 @@
+
+> koa-blog-sample@0.0.1 start /home/tajima-junpei/Documents/bitbucket/koa-sample
+> node --harmony index.js
+
+listening on 3000
+  [90m<-- [;1mGET[90m /[0m
+{ formatDate: [Function] }
+{ sql: 'select "posts".* from "posts" order by "created_at" desc',
+  bindings: [],
+  __cid: '__cid1' }
+{ sql: 'select "users".* from "users" where "users"."id" in (?)',
+  bindings: [ 1 ],
+  __cid: '__cid2' }
+{ sql: 'select "comments".* from "comments" where "comments"."post_id" in (?)',
+  bindings: [ 1 ],
+  __cid: '__cid1' }
+{ sql: 'select "tags".*, "posts_tags"."post_id" as "_pivot_post_id", "posts_tags"."tag_id" as "_pivot_tag_id" from "tags" inner join "posts_tags" on "posts_tags"."tag_id" = "tags"."id" where "posts_tags"."post_id" in (?)',
+  bindings: [ 1 ],
+  __cid: '__cid2' }
+  [90m--> [;1mGET[90m / [32m200[90m 336ms -[0m
+  [90m<-- [;1mGET[90m /application.css[0m
+  [90m--> [;1mGET[90m /application.css [32m200[90m 12ms 120.05kb[0m
