@@ -12,6 +12,7 @@ block content
     h1 Login
 
     form(action="/admin/sessions" method="post" role="form")
+      input(type="hidden" name="_csrf" value= csrf)
       .form-group
         label(for="user[email]") Email
         input.form-control(type="email" name="user[email]" placeholder="email")

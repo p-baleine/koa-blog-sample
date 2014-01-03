@@ -35,7 +35,8 @@
     "browserify-shim": "~3.1.4",
     "browserify": "~3.14.1",
     "backbone": "~1.1.0",
-    "browserify-jade": "~0.1.1"
+    "browserify-jade": "~0.1.1",
+    "koa-csrf": "~1.0.0"
   },
   "devDependencies": {
     "sinon-chai": "~2.4.0",

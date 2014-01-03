@@ -40,4 +40,5 @@ block content
   script.
     window.comments = !{JSON.stringify(post.comments)};
     window.postId = !{post.id};
+    window.csrf = "!{csrf}";
   script(src="/application.js")
