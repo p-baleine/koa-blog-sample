@@ -33,7 +33,9 @@
     "moment": "~2.5.0",
     "config": "~0.4.33",
     "browserify-shim": "~3.1.4",
-    "browserify": "~3.14.1"
+    "browserify": "~3.14.1",
+    "backbone": "~1.1.0",
+    "browserify-jade": "~0.1.1"
   },
   "devDependencies": {
     "sinon-chai": "~2.4.0",
@@ -52,7 +54,8 @@
   },
   "browserify": {
     "transform": [
-      "browserify-shim"
+      "browserify-shim",
+      "browserify-jade"
     ]
   }
 }

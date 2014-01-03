@@ -1,10 +1,10 @@
 MIGRATION_FILES = $(shell find db/migrations -name "*.js")
 LESS_FILES = $(shell find less -name "*.less")
-CLIENT_JS_FILES = $(shell find lib/admin/client -name "*.js")
+CLIENT_JS_FILES = $(shell find lib/client lib/admin/client -name "*.js")
 
 all: buildclient migrate
 
-buildclient: public/application.css public/admin-application.css public/admin-application.js 
+buildclient: public/application.css public/admin-application.css public/application.js public/admin-application.js 
 
 migrate: $(MIGRATION_FILES)
 	./node_modules/.bin/knex migrate:latest -c db/config.js
@@ -14,6 +14,9 @@ seed:
 
 public/%.css: bower_components/bootstrap/less/bootstrap.less less/%.less $(LESS_FILES)
 	./node_modules/.bin/lessc $(word 2,$^) > $@
+
+public/application.js: $(CLIENT_JS_FILES)
+	./node_modules/.bin/browserify lib/client/boot.js > $@
 
 public/admin-application.js: $(CLIENT_JS_FILES)
 	./node_modules/.bin/browserify lib/admin/client/boot.js > $@

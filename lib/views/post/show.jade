@@ -22,14 +22,13 @@ block content
 
         ul
           each comment in post.comments
-            li.comment
-              .commenter= comment.commenter
-              p.content= comment.content
+            li.comment(data-comment-id= comment.id)
+              include comment
 
         if newComment && typeof newComment.errors !== "undefined"
           mixin errors(newComment.errors)
 
-        form(action="/posts/#{post.id}/comments" method="post" role="form")
+        form(role="form")
           .form-group
             label(for="comment[commenter]") Name
             input.form-control(type="text" name="comment[commenter]" placeholder="yourname")
@@ -37,3 +36,8 @@ block content
             label(for="comment[content]") Content
             textarea.form-control(name="comment[content]")
           input.btn.btn-primary.myblog-btn(type="submit" value="send")
+
+  script.
+    window.comments = !{JSON.stringify(post.comments)};
+    window.postId = !{post.id};
+  script(src="/application.js")
