@@ -34,4 +34,17 @@ test: bower_components/jquery/jquery.min.js
 		test/views/* \
 		test/admin/routes/*
 
+test-cov: bower_components/jquery/jquery.min.js
+	NODE_ENV=test ./node_modules/.bin/knex migrate:latest -c db/config.js && \
+	NODE_ENV=test ./node_modules/.bin/mocha \
+		--require blanket \
+		--require ./test/lib/unittest-sinon-chai.js \
+		--harmony-generators \
+		--reporter html-cov \
+		test/models/* \
+		test/routes/* \
+		test/views/* \
+		test/admin/routes/* \
+		> coverage.html
+
 .PHONY: seed test

@@ -45,7 +45,8 @@
     "sinon": "~1.7.3",
     "supertest": "~0.8.2",
     "jsdom": "git+https://github.com/haraldrudell/jsdom.git",
-    "co-render": "0.0.1"
+    "co-render": "0.0.1",
+    "blanket": "git+https://github.com/p-baleine/blanket.git#topic-harmony"
   },
   "browser": {
     "jquery": "./bower_components/jquery/jquery.min.js"
@@ -58,5 +59,11 @@
       "browserify-shim",
       "browserify-jade"
     ]
+  },
+  "config": {
+    "blanket": {
+      "pattern": "lib",
+      "data-cover-never": "node_modules"
+    }
   }
 }
