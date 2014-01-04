@@ -115,7 +115,7 @@ describe('post route', function() {
         co(function *() {
           yield post.show.call(this, this.post.id + 100);
         }).call(ctx, function(e) {
-          expect(e.message).to.equal('404');
+          expect(e.message).to.equal('EmptyResponse');
           done();
         });
       });
