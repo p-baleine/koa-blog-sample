@@ -7,17 +7,9 @@ var Post = require('../../lib/models/post');
 var Comment = require('../../lib/models/comment');
 var Tag = require('../../lib/models/tag');
 var knex = require('bookshelf').blogBookshelf.knex;
+var cleanupDb = require('../lib/cleanup-db')(knex);
 
 describe('Post', function() {
-
-  beforeEach(function(done) {
-    co(function *() {
-      yield knex('comments').del();
-      yield knex('posts_tags').del();
-      yield knex('posts').del();
-      yield knex('users').del();
-    })(done);
-  });
 
   describe('relations', function() {
     it('should belong to User', function() {

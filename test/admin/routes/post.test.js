@@ -8,7 +8,7 @@ var User = require('../../../lib/models/user');
 var Bookshelf = require('bookshelf').blogBookshelf;
 var knex = Bookshelf.knex;
 var post = require('../../../lib/admin/routes/post');
-var cleanupDb = require('../../lib/cleanup-db');
+var cleanupDb = require('../../lib/cleanup-db')(knex);
 
 var fixtures = [
   { title: 'title1', content: 'content1' },
@@ -61,8 +61,8 @@ describe('admin post route', function() {
   });
 
   // set `this.ctx`
-  function stubbedContext() {
-    this.ctx = _.extend({
+  function stubContext(mochaContext) {
+    return _.extend({
       req: {
         body: {
           post: {
@@ -72,10 +72,10 @@ describe('admin post route', function() {
         }
       },
       user: {
-        id: this.user.id
+        id: mochaContext.user.id
       },
       redirect: sinon.spy()
-    }, this);
+    }, mochaContext);
   }
 
   describe('POST /', function() {
@@ -84,7 +84,6 @@ describe('admin post route', function() {
       this.saveSpy.returns({
         then: function(cb) { cb(true); }
       });
-      stubbedContext.call(this);
     });
 
     afterEach(function() {
@@ -96,7 +95,7 @@ describe('admin post route', function() {
         yield post.create;
 
         expect(this.saveSpy.lastCall.thisValue.get('user_id')).to.equal(this.user.id);
-      }).call(this.ctx, done);
+      }).call(stubContext(this), done);
     });
 
     describe('when post save success', function() {
@@ -104,8 +103,8 @@ describe('admin post route', function() {
         co(function *() {
           yield post.create;
 
-          expect(this.ctx.redirect).to.have.been.calledWith('/admin/posts');
-        }).call(this.ctx, done);
+          expect(this.redirect).to.have.been.calledWith('/admin/posts');
+        }).call(stubContext(this), done);
       });
     });
 
@@ -121,7 +120,7 @@ describe('admin post route', function() {
           yield post.create;
 
           expect(this.renderFileSpy.args[0][0]).to.match(/post\/new/);
-        }).call(this.ctx, done);        
+        }).call(stubContext(this), done);
       });
     });
   });
